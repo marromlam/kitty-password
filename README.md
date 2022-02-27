@@ -3,6 +3,11 @@ Password manager for kitty
 
 macOS ships with a great password manager called KeyChain which happens to have an cli tool. This tool, `security`, allows the user to create keychains and passwords as well as grab passwords from it.
 
+### Requirements
+kitty>
+fzf>
+macOS>
+
 
 ## Creating a keychain and populating it
 Albeit the general system keychain could be used with this script, the most convenient way would be to create a specific keychain for kitty. Let's do it:
