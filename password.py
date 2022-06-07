@@ -4,6 +4,7 @@ import subprocess
 import sys
 from typing import List
 from kitty.boss import Boss
+import platform
 
 
 def main(args):
@@ -13,7 +14,11 @@ def main(args):
     # define the commands
     list_pass = ['security', 'dump-keychain', '-d', 'kitty.keychain']
     awk_parse = ('awk', '-F=', '/0x00000007/ { print $2 }')
-    fzf = ('/opt/homebrew/bin/fzf')
+    if platform.processor() == 'arm':
+        fzf = ('/opt/homebrew/bin/fzf')
+    else:
+        fzf = ('/usr/local/bin/fzf')
+
 
     # run commands
     list_pass = subprocess.Popen(list_pass, stdout=subprocess.PIPE)
